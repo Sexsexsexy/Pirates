@@ -1,0 +1,18 @@
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.csprojResolveAssemblyReference.cache
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\pixel.xnb
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\pirateship.xnb
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\bin\x86\Debug\Pirates.exe
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\bin\x86\Debug\Pirates.pdb
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.exe
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.pdb
+c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Fonts\default.xnb
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\pixel.xnb
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\pirateship.xnb
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Fonts\default.xnb
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Pirates.exe
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Pirates.pdb
+D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.csprojResolveAssemblyReference.cache
+D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.exe
+D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.pdb

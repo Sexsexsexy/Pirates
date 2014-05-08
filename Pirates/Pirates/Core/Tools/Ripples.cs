@@ -24,7 +24,12 @@ namespace Pirates
         private int waterwidth;
         private int waterheight;
 
+        public int frameskip = 2;
+        private int frame;
+
         GraphicsDevice gd;
+
+        public Vector2 pixelOffset = Vector2.One;
 
         public Ripples(GraphicsDevice gd, Point size, float dampening)
             :base()
@@ -51,8 +56,14 @@ namespace Pirates
 
         public void Draw(SpriteBatch sb)
         {
-            process();
-            sb.Draw(texture, -Vector2.One, Color.White);
+            frame++;
+
+            if (frame % frameskip != 0)
+                process();
+            else
+                frame = 0;
+
+            sb.Draw(texture, -pixelOffset, Color.White);
         }
 
         private void process()

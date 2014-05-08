@@ -1,2 +1,0 @@
-c:\users\gabbe\documents\visual studio 2010\Projects\Pirates\Pirates\PiratesContent\obj\x86\Debug\PiratesContent.contentprojResolveAssemblyReference.cache
-D:\Project\C#\Pirates\Pirates\PiratesContent\obj\x86\Debug\PiratesContent.contentprojResolveAssemblyReference.cache

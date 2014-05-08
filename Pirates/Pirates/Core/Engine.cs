@@ -33,7 +33,7 @@ namespace Pirates
             Data.LoadAllFiles(Content);
 
             sb = new SpriteBatch(GraphicsDevice);
-            Point size = new Point(1920, 1080);
+            Point size = new Point(1280, 720);
             Point defsize = new Point(1280, 720);
 
             graphics.PreferredBackBufferHeight = size.Y;

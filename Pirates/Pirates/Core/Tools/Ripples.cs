@@ -21,25 +21,29 @@ namespace Pirates
         private Color[] heightmap;
         private float dampening;
 
-        private int waterwidth;
-        private int waterheight;
+        private int width;
+        private int height;
+
+        public Vector2 scale;
 
         GraphicsDevice gd;
 
-        public Ripples(GraphicsDevice gd, Point size, float dampening)
+        public Ripples(GraphicsDevice gd, Point size, Point screensize, float dampening)
             :base()
         {
             this.gd = gd;
-            waterwidth = size.X;
-            waterheight = size.Y;
+            width = size.X;
+            height = size.Y;
 
-            Buffer1 = new float[waterwidth, waterheight];
-            Buffer2 = new float[waterwidth, waterheight];
-            collisiongrid = new bool[waterwidth, waterheight];
+            scale = new Vector2(screensize.X / width, screensize.Y / height);
+
+            Buffer1 = new float[width, height];
+            Buffer2 = new float[width, height];
+            collisiongrid = new bool[width, height];
 
             heightmap = new Color[size.X * size.Y];
 
-            texture = new Texture2D(gd, waterwidth, waterheight, true, SurfaceFormat.Color);
+            texture = new Texture2D(gd, width, height, true, SurfaceFormat.Color);
 
             this.dampening = dampening;
         }
@@ -119,6 +123,9 @@ namespace Pirates
 
         public void ripple(float amount, int x, int y)
         {
+            x += width / 2;
+            y += height / 2;
+
             if (!(x > 0 && x < Buffer1.GetLength(0) - 1
                 && y > 0 && y < Buffer1.GetLength(1) - 1))
                 return;

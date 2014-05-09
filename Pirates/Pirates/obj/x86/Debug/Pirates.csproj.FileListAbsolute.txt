@@ -16,3 +16,4 @@ D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.csprojResolveAssembl
 D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.exe
 D:\Project\C#\Pirates\Pirates\Pirates\obj\x86\Debug\Pirates.pdb
+D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\cannonball.xnb

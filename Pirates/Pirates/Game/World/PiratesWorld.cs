@@ -13,6 +13,7 @@ namespace Pirates
         private Matrix waterscalematrix;
         private Ripples water;
 
+        private Wind wind;
         private Point defsize;
 
         private Player ship;
@@ -24,8 +25,14 @@ namespace Pirates
             watersize = new Point(defsize.X / 2, defsize.Y/2);
             waterscale = 2;
             waterscalematrix = resmatrix * Matrix.CreateScale(waterscale);
-            water = new Ripples(gd, watersize, 0.94f);
-            ship = new Player();
+            water = new Ripples(gd, watersize, defsize, 0.94f);
+
+            wind = new Wind(defsize, new Point(defsize.X / 40, defsize.Y / 40));
+            List<Sprite> sprites = wind.Generate();
+            for (int i = 0; i < sprites.Count; i++)
+                addAsset(sprites[i]);
+
+            ship = new Player(water, wind);
 
             addAsset(ship);
         }
@@ -33,10 +40,6 @@ namespace Pirates
         public override void Update(GameTime gt)
         {
             base.Update(gt);
-
-            Vector2 ripplepos = ship.position + new Vector2(ship.heading.X * ship.width, ship.heading.Y * ship.height) / 2 + new Vector2(defsize.X / 2, defsize.Y / 2);
-            water.ripple(ship.speed * 2, (int)(ripplepos.X) / 2, (int)(ripplepos.Y) / 2);
-
         }
 
         public override void Draw(SpriteBatch sb)

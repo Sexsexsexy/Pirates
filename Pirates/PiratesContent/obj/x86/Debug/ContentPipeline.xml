@@ -28,6 +28,15 @@
       <Output>D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Fonts\default.xnb</Output>
       <Time>2014-05-08T10:44:40.0941281+02:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\cannonball.png</Source>
+      <Name>Textures\cannonball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Project\C#\Pirates\Pirates\Pirates\bin\x86\Debug\Content\Textures\cannonball.xnb</Output>
+      <Time>2014-05-09T09:49:10.9569573+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

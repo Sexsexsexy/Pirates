@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Base\PhysObject.cs" />
     <Compile Include="Core\Base\ScreenAsset.cs" />
     <Compile Include="Core\Base\Sprite.cs" />
     <Compile Include="Core\Base\WorldObject.cs" />
@@ -118,8 +119,11 @@
     <Compile Include="Core\Tools\Rnd.cs" />
     <Compile Include="Core\Tools\SimpleCamera2D.cs" />
     <Compile Include="Core\Tools\Timer.cs" />
+    <Compile Include="Core\Tools\Wind.cs" />
+    <Compile Include="Game\World\Body.cs" />
     <Compile Include="Game\World\PiratesWorld.cs" />
     <Compile Include="Game\World\Player.cs" />
+    <Compile Include="Game\World\Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Core\Engine.cs" />

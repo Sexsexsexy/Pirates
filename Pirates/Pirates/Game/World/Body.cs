@@ -36,11 +36,17 @@ namespace Pirates
 
             inertia = mass * (width * width + height * height) / 12;
 
+            friction = 0.999f;
+            rotationfriction = 0.9f;
+
             maxspeed = 10;
         }
 
         public void Update()
         {
+            rotationspeed *= rotationfriction;
+            velocity *= friction;
+
             position += velocity;
             rotation += rotationspeed;
         }

@@ -10,21 +10,8 @@ namespace Pirates
     class Player : PhysObject
     {
         public Vector2 heading;
-        //public float speed;
-        //private float accel;
-        //private float maxspeed;
 
-        //private float rotationvelocity;
-        //private float rotationspeed;
-        //private float rotationaccel;
-        //private float rotationmaxspeed;
-
-        //private float waterfriction;
-        //private float inertia;
-
-        //private float rudderlength;
-
-        private float windscale;
+        private float rudderlength;
 
         private Ripples water;
         private Wind wind;
@@ -38,23 +25,11 @@ namespace Pirates
             width = 48;
             height = 64;
 
-            setPos(new Vector2(100));
+            setPos(new Vector2(0, -100));
 
-            //windscale = defs
-
-            //speed = 0;
-            //accel = 0.1f;
-            //maxspeed = 1f;
-
-            //rotationspeed = 0;
-            //rotationaccel = 100f;
-            //rotationmaxspeed = 1000f;
-
-            //waterfriction = 0.99f;
-            //inertia = 0.99f;
             originoffset = new Vector2(0, -height / 4);
 
-            //rudderlength = 10;
+            rudderlength = 10;
 
             this.water = water;
             this.wind = wind;
@@ -66,17 +41,27 @@ namespace Pirates
         {
             heading = new Vector2((float)-Math.Sin(body.rotation), (float)Math.Cos(body.rotation));
 
-            //if(body.velocity == Vector2.Zero)
-            //    body.applyForce(heading);
+            HandleInput();
 
-            body.applyForce(wind.getWind((int) (position.X / wind.scale.X), (int)(position.Y / wind.scale.Y)));
+            if (body.velocity == Vector2.Zero)
+                body.applyForce(heading * 10);
 
-            Vector2 ripplepos = position + new Vector2(heading.X * width, heading.Y * height) / water.scale.X;
-            water.ripple(body.velocity.LengthSquared(), (int)(ripplepos.X) / 2, (int)(ripplepos.Y) / 2);
+            Vector2 winddir = wind.getWind((int)(position.X / wind.scale.X), (int)(position.Y / wind.scale.Y));
+
+            body.applyForce(winddir / 10f);
+
+            Vector2 perp = new Vector2(-heading.Y, heading.X) * (body.velocity.X * -heading.Y + body.velocity.Y * heading.X);
+            body.applyForce(-perp * body.mass );
 
             p.Update(gt);
 
             base.Update(gt);
+
+            Vector2 ripplepos = position + new Vector2(body.velocity.X * width, body.velocity.Y * height);
+            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y + 1));
+            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y + 1));
         }
 
         public override void Draw(SpriteBatch sb)
@@ -87,26 +72,17 @@ namespace Pirates
 
         private void HandleInput()
         {
-          
-            //if ((Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up)) && speed < maxspeed)
-            //{
-            //    speed += accel;
-            //    body.applyForce(heading * speed);
-            //}
+            float apprvel = Math.Abs(body.velocity.X) + Math.Abs(body.velocity.Y);
+            float torque = body.velocity.Length() * 7f;
 
-             //if ((Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left)) && rotationspeed > -rotationmaxspeed)
-             //{
-             //    body.applyTorque(-body.velocity.LengthSquared() * rudderlength);
-             //}
-             //if ((Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right)) && rotationspeed < rotationmaxspeed)
-             //{
-             //    body.applyTorque(body.velocity.LengthSquared() * rudderlength);
-             //}
+            if ((Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left)))
+                body.applyTorque(-torque);
 
-             //if (Input.WasKeyPressed(Keys.Space))
-             //{
-             //    p.respawn(body.velocity + new Vector2(heading.Y,-heading.X) * 2, position);
-             //}
+            if ((Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right)))
+                body.applyTorque(torque);
+
+            if (Input.WasKeyPressed(Keys.Space))
+                p.respawn(body.velocity + new Vector2(heading.Y, -heading.X) / 2, position);
         }
     }
 }

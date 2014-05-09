@@ -85,17 +85,6 @@ namespace Pirates
 
                     if (!collisiongrid[x,y])
                     {
-                        //float newheight =
-                        //    (Buffer1[x - 1, y]
-                        //    + Buffer1[x + 1, y]
-                        //    + Buffer1[x, y + 1]
-                        //    + Buffer1[x, y - 1]
-                        //    + Buffer1[x + 1, y - 1]
-                        //    + Buffer1[x + 1, y + 1]
-                        //    + Buffer1[x - 1, y - 1]
-                        //    + Buffer1[x - 1, y + 1]) / 8 - Buffer2[x, y];
-
-
                         float newheight =
                             (Buffer1[x - 1, y]
                             + Buffer1[x + 1, y]
@@ -119,7 +108,7 @@ namespace Pirates
                         }
                     }
                     else
-                        c = Color.Black;
+                        c = Color.DarkBlue;
 
                     heightmap[x + y * width] = c;
                 }

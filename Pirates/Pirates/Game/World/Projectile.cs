@@ -32,7 +32,6 @@ namespace Pirates
         {
             lifetimer.Update(gt);
 
-
             if (alive)
                 base.Update(gt);
 
@@ -59,7 +58,10 @@ namespace Pirates
         private void die()
         {
             alive = false;
-            water.ripple(2, (int)position.X, (int)position.Y);
+            water.ripple(1, (int)(position.X / water.scale.X), (int)(position.Y / water.scale.Y));
+            water.ripple(1, (int)(position.X / water.scale.X + 1), (int)(position.Y / water.scale.Y));
+            water.ripple(1, (int)(position.X / water.scale.X), (int)(position.Y / water.scale.Y + 1));
+            water.ripple(1, (int)(position.X / water.scale.X + 1), (int)(position.Y / water.scale.Y));
         }
     }
 }

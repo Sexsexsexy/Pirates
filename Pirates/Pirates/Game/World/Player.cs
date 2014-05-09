@@ -14,7 +14,11 @@ namespace Pirates
         private float accel;
         private float maxspeed;
 
+        private float rotationvelocity;
         private float rotationspeed;
+        private float rotationaccel;
+        private float rotationmaxspeed;
+
         private float waterfriction;
         private float inertia;
 
@@ -24,11 +28,17 @@ namespace Pirates
             texturename = "pirateship";
             width = 48;
             height = 64;
+
             speed = 0;
             accel = 0.01f;
             maxspeed = 1;
+
+            rotationspeed = 0;
+            rotationaccel = 0.0001f;
+            rotationmaxspeed = 0.01f;
+
             waterfriction = 0.99f;
-            inertia = 0.8f;
+            inertia = 0.99f;
             originoffset = new Vector2(0, -height / 4);
         }
 
@@ -39,7 +49,7 @@ namespace Pirates
             speed *= waterfriction;
             rotationspeed *= inertia;
 
-            rotation += rotationspeed;
+            rotation += rotationvelocity;
             position += velocity;
 
             base.Update(gt);
@@ -47,26 +57,18 @@ namespace Pirates
 
         private void HandleInput()
         {
-             if (Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up))
-             {
-                 if(speed < maxspeed)
-                    speed += accel;
-             }
+             if ((Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up)) && speed < maxspeed)
+                speed += accel;
 
-             heading = new Vector2((float)-Math.Sin(rotation), (float)Math.Cos(rotation)) * speed;
-             velocity = heading;
+             heading = new Vector2((float)-Math.Sin(rotation), (float)Math.Cos(rotation));
+             velocity = heading * speed;
 
-             if (velocity != Vector2.Zero)
-             {
-                 if (Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left))
-                 {
-                     rotationspeed = -0.01f * speed;
-                 }
-                 if (Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right))
-                 {
-                     rotationspeed = 0.01f * speed;
-                 }
-             }
+            if ((Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left)) && rotationspeed > -rotationmaxspeed)
+                rotationspeed -= rotationaccel;
+            if ((Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right)) && rotationspeed < rotationmaxspeed)
+                rotationspeed += rotationaccel;
+
+             rotationvelocity = rotationspeed * speed;
         }
     }
 }

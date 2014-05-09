@@ -108,6 +108,11 @@ namespace Pirates
                             c = Color.White;
                             c.A = (byte)(255 * val);
                         }
+                        if (val < -0.01f)
+                        {
+                            c = Color.Black;
+                            c.A = (byte)(255 * -val);
+                        }
                     }
                     else
                         c = Color.Black;

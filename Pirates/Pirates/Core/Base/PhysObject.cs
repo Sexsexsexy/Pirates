@@ -10,6 +10,7 @@ namespace Pirates
     {
         protected Body body;
         private float physcale;
+        private Vector2 gittester;
 
         public PhysObject(int width, int height, float density)
         {

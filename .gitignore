@@ -1,6 +1,4 @@
-/Pirates/PiratesContent/bin
-/Pirates/PiratesContent/obj
-/Pirates/Pirates/bin
-/Pirates/Pirates/obj
-/Pirates.suo
-/Pirates/Pirates/Pirates.csproj.Debug.cachefile
+bin/
+obj/
+Pirates.suo
+Pirates/Pirates/Pirates.csproj.Debug.cachefile

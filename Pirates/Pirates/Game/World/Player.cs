@@ -25,7 +25,7 @@ namespace Pirates
             width = 48;
             height = 64;
 
-            setPos(new Vector2(0, -100));
+            setPos(new Vector2(100, 0));
 
             originoffset = new Vector2(0, -height / 4);
 
@@ -58,10 +58,10 @@ namespace Pirates
             base.Update(gt);
 
             Vector2 ripplepos = position + new Vector2(body.velocity.X * width, body.velocity.Y * height);
-            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y));
-            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y));
-            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y + 1));
-            water.ripple(body.velocity.LengthSquared() + 0.4f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y + 1));
+            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y + 1));
+            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y + 1));
         }
 
         public override void Draw(SpriteBatch sb)
@@ -82,7 +82,7 @@ namespace Pirates
                 body.applyTorque(torque);
 
             if (Input.WasKeyPressed(Keys.Space))
-                p.respawn(body.velocity + new Vector2(heading.Y, -heading.X) / 2, position);
+                p.respawn(body.velocity / 2 + new Vector2(heading.Y, -heading.X) / 2, position);
         }
     }
 }

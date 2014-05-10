@@ -22,10 +22,10 @@ namespace Pirates
             : base(defsize, size)
         {
             this.defsize = defsize;
-            watersize = new Point(defsize.X / 2, defsize.Y/2);
-            waterscale = 2;
+            waterscale = 3;
+            watersize = new Point((int)(defsize.X / waterscale), (int)(defsize.Y / waterscale));
             waterscalematrix = resmatrix * Matrix.CreateScale(waterscale);
-            water = new Ripples(gd, watersize, defsize, 0.94f);
+            water = new Ripples(gd, watersize, defsize, 0.98f);
 
             wind = new Wind(defsize, new Point(defsize.X / 40, defsize.Y / 40));
             List<Sprite> sprites = wind.Generate();

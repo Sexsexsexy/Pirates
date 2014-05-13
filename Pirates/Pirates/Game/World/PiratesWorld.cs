@@ -22,7 +22,7 @@ namespace Pirates
             : base(defsize, size)
         {
             this.defsize = defsize;
-            waterscale = 3;
+            waterscale = 4;
             watersize = new Point((int)(defsize.X / waterscale), (int)(defsize.Y / waterscale));
             waterscalematrix = resmatrix * Matrix.CreateScale(waterscale);
             water = new Ripples(gd, watersize, defsize, 0.98f);

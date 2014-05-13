@@ -99,12 +99,12 @@ namespace Pirates
                         if (val > 0.01f)
                         {
                             c = Color.White;
-                            c.A = (byte)(255 * val);
+                            c.A = (byte)(255 * val * 0.5f);
                         }
                         if (val < -0.01f)
                         {
                             c = Color.Black;
-                            c.A = (byte)(255 * -val);
+                            c.A = (byte)(255 * -val * 0.5f);
                         }
                     }
                     else

@@ -58,10 +58,10 @@ namespace Pirates
             base.Update(gt);
 
             Vector2 ripplepos = position + new Vector2(body.velocity.X * width, body.velocity.Y * height);
-            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y));
-            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y));
-            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y + 1));
-            water.ripple(body.velocity.LengthSquared() + 0.1f, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y + 1));
+            water.ripple(body.velocity.LengthSquared() + Rnd.ZeroToOne() / 2, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + Rnd.ZeroToOne() / 2, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y));
+            water.ripple(body.velocity.LengthSquared() + Rnd.ZeroToOne() / 2, (int)(ripplepos.X / water.scale.X), (int)(ripplepos.Y / water.scale.Y + 1));
+            water.ripple(body.velocity.LengthSquared() + Rnd.ZeroToOne() / 2, (int)(ripplepos.X / water.scale.X + 1), (int)(ripplepos.Y / water.scale.Y + 1));
         }
 
         public override void Draw(SpriteBatch sb)
